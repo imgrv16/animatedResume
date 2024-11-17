@@ -1,58 +1,182 @@
 .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  height: 96vh;
+
+  /* Add 4K Nature Wallpaper Background */
+  background-image: url("https://wallpapercave.com/uwp/uwp4291230.jpeg"); /* Replace with the actual path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Add an optional overlay for better text readability */
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+    z-index: 1;
+  }
+
+  /* Ensure child elements are above the overlay */
+  * {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Header Styles */
+  &-header {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #005fcc, #313435);
-    color: #fff;
-    padding: 20px;
-  
-    .hero-content {
-      max-width: 800px;
-  
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 50px;
+
+    .hero-logo-container {
+      display: flex;
+      align-items: center;
+
+      .hero-logo {
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
       }
-  
-      p {
-        font-size: 1.2rem;
-        margin-bottom: 30px;
+
+      .hero-name {
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff; /* Adjust text color for better visibility */
       }
-  
-      .professional-summary {
-        text-align: left;
-        list-style: disc;
-        margin: 20px auto;
-        padding: 0 40px;
-        font-size: 1rem;
-        line-height: 1.6;
-  
-        li {
-          margin-bottom: 10px;
+    }
+
+    .hero-nav {
+      display: flex;
+      gap: 20px;
+
+      .hero-link {
+        text-decoration: none;
+        font-size: 16px;
+        color: #fff; /* Adjust text color */
+        position: relative;
+
+        &:hover {
+          color: #fedb02;
         }
-      }
-  
-      .hero-navigation {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 30px;
-  
-        .nav-link {
-          font-size: 1rem;
-          font-weight: bold;
-          color: #fff;
-          text-decoration: none;
-          border-bottom: 2px solid transparent;
-          transition: all 0.3s ease;
-  
-          &:hover {
-            border-bottom: 2px solid #fedb02;
-          }
+
+        /* Active Link */
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: #fedb02;
+          transform: scaleX(0);
+          transition: transform 0.3s ease;
+        }
+
+        &:hover:after {
+          transform: scaleX(1);
         }
       }
     }
   }
-  
+
+  /* Content Styles */
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+
+    .hero-text {
+      flex: 1;
+
+      .hero-title {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #fff; /* Adjust text color */
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+        color: #ddd; /* Adjust text color */
+      }
+    }
+
+    .hero-image-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+
+      .hero-image {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  /* Mobile View */
+  @media (max-width: 768px) {
+    &-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .hero-logo-container {
+        flex-direction: column;
+        margin-bottom: 20px;
+
+        .hero-name {
+          font-size: 20px;
+        }
+      }
+
+      .hero-nav {
+        flex-direction: column;
+        gap: 10px;
+
+        .hero-link {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &-content {
+      flex-direction: column;
+      text-align: center;
+
+      .hero-text {
+        margin-bottom: 20px;
+
+        .hero-title {
+          font-size: 24px;
+        }
+
+        .hero-subtitle {
+          font-size: 16px;
+        }
+      }
+
+      .hero-image-container {
+        .hero-image {
+          width: 200px;
+          height: 200px;
+        }
+      }
+    }
+  }
+}

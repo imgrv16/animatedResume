@@ -23,7 +23,33 @@ const workExperience = [
       'Used MaterialUI to create custom tables and accordions.',
     ],
   },
-  // Add other experiences here
+  {
+    title: 'Forte Knox  - Infosys Project',
+    duration: '09/2020 - 02/2021',
+    details: [
+      'Developed responsive web-based interfaces using ReactJS, HTML, and CSS.',
+      'Built independent single-page components for SharePoint integration.',
+      'Used MaterialUI to create custom tables and accordions.',
+    ],
+  },
+  {
+    title: 'CRM Activity Dashboard - Infosys Project',
+    duration: '07/2020 - 09/2020',
+    details: [
+      'Developed responsive web-based interfaces using ReactJS, HTML, and CSS.',
+      'Built independent single-page components for SharePoint integration.',
+      'Used MaterialUI to create custom tables and accordions.',
+    ],
+  },
+  {
+    title: 'Runner Redesign - Infosys Project',
+    duration: '02/2020 - 08/2020',
+    details: [
+      'Developed responsive web-based interfaces using ReactJS, HTML, and CSS.',
+      'Built independent single-page components for SharePoint integration.',
+      'Used MaterialUI to create custom tables and accordions.',
+    ],
+  },
 ];
 
 const WorkHistory = () => {
