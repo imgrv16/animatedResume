@@ -4,7 +4,7 @@ import Hero from './components/hero/Hero';
 import WorkHistory from './components/workhistory/WorkHistory';
 import Skills from './components/skill/Skill';
 import Education from './components/education/Education';
-import Header from './components/header/Header';
+import TimeLine from './components/Timeline/Timeline';
 // import './App.scss';
 
 
@@ -17,7 +17,7 @@ const App = () => {
         <Route path="/workhistory" element={<WorkHistory />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/education" element={<Education />} />
-        <Route path="/header" element={<Header />} />
+        <Route path="/timeLine" element={<TimeLine />} />
       </Routes>
     </Router>
   );

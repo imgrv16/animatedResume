@@ -1,9 +1,5 @@
-body {}
-
 .work-history {
   padding: 40px 20px;
-  
-  // background: #f9f9f9;
 
   h2 {
     text-align: center;
@@ -21,8 +17,9 @@ body {}
       border: 1px solid #ddd;
       border-radius: 8px;
       padding: 20px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      // opacity: 0.5;
+      transition: transform 0.3s, box-shadow 0.3s, filter 0.3s; // Added filter transition
+      opacity: 0.5;
+      
 
       &:hover {
         transform: scale(1.05);
@@ -61,7 +58,3 @@ body {}
     }
   }
 }
-
-// .timeline-item:hover {
-//   opacity: 1;
-// }

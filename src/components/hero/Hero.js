@@ -20,7 +20,8 @@ const Hero = () => {
           <h1 className="hero-name">Gaurav Anand</h1>
         </div>
         <nav className="hero-nav">
-          <a href="#home" className="hero-link">Home</a>
+          {/* <a href="#home" className="hero-link">Home</a> */}
+          <Link to="/timeline" className="hero-link">TimeLine</Link>
           <Link to="/skills" className="hero-link">Skills</Link>
           <Link to="/workhistory" className="hero-link">WorkHistory</Link>
           <Link to="/education" className="hero-link">Education</Link>
