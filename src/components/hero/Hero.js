@@ -3,6 +3,7 @@ import "./Hero.scss";
 import profilePic from '../images/profilePic.jpg';
 import WorkHistory from '../workhistory/WorkHistory';
 import { Link } from "react-router-dom";
+import TimeLine from '../Timeline/Timeline';
 
 // animatedResume\src\components\images\profilePic.jpg
 // C:\Users\g.d.anand\OneDrive - Accenture\Documents\NewProject\animatedResume\src\components\images\profilePic.jpg
@@ -17,11 +18,11 @@ const Hero = () => {
             alt="Logo"
             className="hero-logo"
           />
-          <h1 className="hero-name">Gaurav Anand</h1>
+          <h1 className="hero-name">Gaurav</h1>
         </div>
         <nav className="hero-nav">
           {/* <a href="#home" className="hero-link">Home</a> */}
-          <Link to="/timeline" className="hero-link">TimeLine</Link>
+          {/* <Link to="/timeline" className="hero-link">TimeLine</Link> */}
           <Link to="/skills" className="hero-link">Skills</Link>
           <Link to="/workhistory" className="hero-link">WorkHistory</Link>
           <Link to="/education" className="hero-link">Education</Link>
@@ -33,12 +34,15 @@ const Hero = () => {
 
       {/* Main Content */}
       <div className="hero-content">
-        <div className="hero-text">
-          <h2 className="hero-title">I am Gaurav Anand, Based out of Delhi, India</h2>
-          <p className="hero-subtitle">
-            I am currently working as Web Developer specialized on reactJs and frontend tools
-          </p>
+        <div className="col-md-4 timeline-container">
+              <TimeLine />
         </div>
+        <div className="hero-text">
+            <h2 className="hero-title">I am Gaurav Anand, Based out of Delhi, India</h2>
+            <p className="hero-subtitle">
+              I am currently working as Web Developer specialized on reactJs and frontend tools
+            </p>
+          </div>
         <div className="hero-image-container">
           <img
             src={profilePic}
