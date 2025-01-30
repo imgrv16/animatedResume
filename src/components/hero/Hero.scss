@@ -1,185 +1,54 @@
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  height: 96vh;
-
-  /* Add 4K Nature Wallpaper Background */
-  background-image: url("https://wallpapercave.com/uwp/uwp4291230.jpeg"); /* Replace with the actual path to your image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  /* Add an optional overlay for better text readability */
-  position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
+/* rain effect */
+@keyframes rain {
+    0% {
+      transform: translateY(-200px);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+  
+  .rain {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
-    z-index: 1;
+    background: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
   }
-
-  /* Ensure child elements are above the overlay */
-  * {
-    position: relative;
-    z-index: 2;
+  
+  .rain .drop {
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    animation: rain linear infinite;
+    animation-duration: 0.5s; /* speed of falling */
   }
-
-  /* Header Styles */
-  &-header {
-    display: flex;
-    justify-content: space-between;
+  
+  /* Generate multiple rain drops */
+  .rain .drop:nth-child(odd) {
+    animation-duration: 0.7s;
+  }
+  
+  @keyframes thunderstorm {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .thunderstorm {
+    position: absolute;
     width: 100%;
-    // max-width: 1200px;
-    margin-bottom: 50px;
-
-    .hero-logo-container {
-      display: flex;
-      align-items: center;
-
-      .hero-logo {
-        width: 50px;
-        height: 50px;
-        margin-right: 15px;
-      }
-
-      .hero-name {
-        font-size: 24px;
-        font-weight: 700;
-        color: #fff; /* Adjust text color for better visibility */
-      }
-    }
-
-    .hero-nav {
-      display: flex;
-      gap: 20px;
-
-      .hero-link {
-        text-decoration: none;
-        font-size: 16px;
-        color: #fff; /* Adjust text color */
-        position: relative;
-
-        &:hover {
-          color: #fedb02;
-        }
-
-        /* Active Link */
-        &:after {
-          content: "";
-          position: absolute;
-          bottom: -5px;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          background: #fedb02;
-          transform: scaleX(0);
-          transition: transform 0.3s ease;
-        }
-
-        &:hover:after {
-          transform: scaleX(1);
-        }
-      }
-    }
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    animation: thunderstorm 3s infinite;
   }
-
-  /* Content Styles */
-  &-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    // max-width: 1200px;
-    .timeline-container{
-      border: 1px solid red;
-    }
-
-    .hero-text {
-      flex: 1;
-
-      .hero-title {
-        font-size: 36px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        color: #fff; /* Adjust text color */
-      }
-
-      .hero-subtitle {
-        font-size: 18px;
-        color: #ddd; /* Adjust text color */
-      }
-    }
-
-    .hero-image-container {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-
-      .hero-image {
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        object-fit: cover;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-    }
-  }
-
-  /* Mobile View */
-  @media (max-width: 768px) {
-    &-header {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-
-      .hero-logo-container {
-        flex-direction: column;
-        margin-bottom: 20px;
-
-        .hero-name {
-          font-size: 20px;
-        }
-      }
-
-      .hero-nav {
-        flex-direction: column;
-        gap: 10px;
-
-        .hero-link {
-          font-size: 14px;
-        }
-      }
-    }
-
-    &-content {
-      flex-direction: column;
-      text-align: center;
-
-      .hero-text {
-        margin-bottom: 20px;
-
-        .hero-title {
-          font-size: 24px;
-        }
-
-        .hero-subtitle {
-          font-size: 16px;
-        }
-      }
-
-      .hero-image-container {
-        .hero-image {
-          width: 200px;
-          height: 200px;
-        }
-      }
-    }
-  }
-}
+  

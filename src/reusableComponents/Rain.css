@@ -1,0 +1,67 @@
+/* Dark background overlay */
+.dark-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Darker background */
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* Thunderstorm Flash Effect */
+@keyframes thunderFlash {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Class for random thunder flashes */
+.thunder-flash {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5); /* White flash */
+  animation: thunderFlash 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+/* Rain effect */
+@keyframes rain {
+  0% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.rain .drop {
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  animation: rain linear infinite;
+  animation-duration: 0.5s;
+}
+
+.rain .drop:nth-child(odd) {
+  animation-duration: 0.7s;
+}
