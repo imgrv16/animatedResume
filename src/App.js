@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import Navbar from './components/Navbar/NavigationBar';
+import Navbar from './components/Navbar/NavigationBar';
 import WorkHistory from './components/workhistory/WorkHistory';
 import Skills from './components/skill/Skill';
 import Education from './components/education/Education';

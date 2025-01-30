@@ -1,0 +1,133 @@
+//  global context flags using wierd ☠️ names to minimize 
+//  chance of naming conflicts with other scss variables
+$☠️--animation-timeline-duration: null;
+$☠️--animation-timeline-tweens  : null;
+
+//  mixin to create an animation context for nested tweens
+//  used to calculate the total duration of the animation
+//  converting each tween delay into percentages 
+@mixin animation-timeline($name: unique-id()) {
+
+    //  global context flag to sum up duration
+    $☠️--animation-timeline-duration: 0s !global;    
+
+    //  global context map to hold animation tweens
+    $☠️--animation-timeline-tweens  : () !global;
+
+    //  mixin content (the included tweens)
+    @content;
+
+    //  animation name and duration 
+    //  note! if no name is provided a unique id will be used
+    //  this allows you to create one-time-use animations without
+    //  having to deal with animation naming conflicts :-)     
+    animation-name:     $name;
+    animation-duration: $☠️--animation-timeline-duration;
+
+    //  create keyframes
+    @if $☠️--animation-timeline-duration > 0s {
+        @keyframes #{$name} {
+            //  loop through the included tweens 
+            @each $time, $props in $☠️--animation-timeline-tweens {
+                //  calculate percentage based on total duration
+                #{percentage($time/$☠️--animation-timeline-duration)}{ 
+                    //  print out the tween properties
+                    @each $prop, $value in $props {
+                        #{$prop}:$value;
+                    }
+                }
+            }
+        }
+    }
+
+    //  reset global context flags
+    $☠️--animation-timeline-duration: null !global;
+    $☠️--animation-timeline-tweens  : null !global;
+}
+
+
+//  mixin to create tweens based on a delay and a map
+//  containing the the tween properties*
+//
+//  * using a map is not optimal – but for now you are not 
+//  able to save @content to variables :( 
+//  
+@mixin tween($delay: 0s, $props: null){
+    //  only do stuff if we are in a animation-timeline context
+    @if $☠️--animation-timeline-tweens {
+        //  increment the total animation duration by the the tween delay 
+        $☠️--animation-timeline-duration: $☠️--animation-timeline-duration + $delay !global;
+        //  save current duration and tween props to the global tween map
+        $☠️--animation-timeline-tweens: map-merge($☠️--animation-timeline-tweens, ($☠️--animation-timeline-duration: $props)) !global;
+    }
+}
+
+//  TODO ideas
+//  - tween(3s)     no map => reuses the previous map to create pause
+//  - tween(start)  start  => adds a 0.01ms delay and reuses first map to jump to start   
+
+
+// body {
+//     @include animation-timeline {
+//         animation-iteration-count: infinite;
+//         animation-fill-mode: forwards;
+//         @include tween(0s, (background-color: blueviolet, color: blueviolet));        
+//         @include tween(3s, (background-color: red, color: red));
+//         @include tween(3s, (background-color: orange, color: orange));
+//         @include tween(3s, (background-color: gold, color: gold));
+//         @include tween(3s, (background-color: green, color: green));
+//         @include tween(3s, (background-color: blue, color: blue));
+//         @include tween(3s, (background-color: blueviolet, color: blueviolet));
+//     }
+// }
+
+
+
+
+.hearts {
+    overflow: hidden; 
+    // height: 15em;
+    i { font-size: 1em; display: block; line-height: 2.5; margin: 0; font-style: normal; }
+    span {
+        position: relative; 
+        display: block; 
+        @include animation-timeline(hearts) {
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            @include tween(600ms, (transform: translatey(-100%/7 * 1)));   //  slide to ❤️
+            @include tween(2.4s,  (transform: translatey(-100%/7 * 1)));   //  pause 
+            @include tween(600ms, (transform: translatey(-100%/7 * 2)));   //  slide to 🧡 
+            @include tween(2.4s,  (transform: translatey(-100%/7 * 2)));   //  pause 
+            @include tween(600ms, (transform: translatey(-100%/7 * 3)));   //  slide to 💛
+            @include tween(2.4s,  (transform: translatey(-100%/7 * 3)));   //  pause 
+            @include tween(600ms, (transform: translatey(-100%/7 * 4)));   //  slide to 💚
+            @include tween(2.4s,  (transform: translatey(-100%/7 * 4)));   //  pause 
+            @include tween(600ms, (transform: translatey(-100%/7 * 5)));   //  slide to 💙
+            @include tween(2.4s,  (transform: translatey(-100%/7 * 5)));   //  pause 
+            @include tween(600ms, (transform: translatey(-100%/7 * 6)));   //  slide to 💜
+            @include tween(2.4s,  (transform: translatey(-100%/7 * 6)));   //  pause 
+            @include tween(0.1ms, (transform: translatey(-100%/7 * 0)));   //  jump to  💜
+        }
+    }
+    
+}
+
+.timeLineList{
+    // font-size: 5px !important;
+    font-weight: bold;
+    color: black;
+    background-color: azure;
+}
+
+
+
+html { box-sizing: border-box; } *,*::before,*::after { box-sizing: inherit; }
+header { background: rgba(white, 0.9); padding: 1em; color: inherit; overflow: hidden; transform: translate3d(0,0,0); }
+h1   { font: 400 24px sans-serif; margin-bottom: 0; }
+p    { font: 400 16px sans-serif; }
+pre  { 
+    font-size: 11px; background: rgba(white, 0.7); padding: 1em; color: black; overflow: scroll;
+    -webkit-overflow-scrolling: touch; 
+    span { opacity: 0.7; }
+}
+
