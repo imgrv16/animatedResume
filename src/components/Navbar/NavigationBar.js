@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCloudRain } from "react-icons/fa"; // FontAwesome Icon
 import { FiMenu, FiX } from "react-icons/fi"; // Hamburger icons
+import logo from "./logo01.png";
 // import "./Navbar.css";
 
 const Navbar = () => {
@@ -19,7 +20,8 @@ const Navbar = () => {
     <nav className="navbar">
       {/* Left Icon */}
       <div className="navbar-icon">
-        <FaCloudRain />
+        <img src={logo} alt="logo" style={{height:"80px",width:"80px"}}/>
+        <h1>Gaurav</h1>
       </div>
 
       {/* Hamburger Menu (Mobile) */}
