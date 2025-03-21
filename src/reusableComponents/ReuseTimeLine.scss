@@ -67,27 +67,27 @@ $☠️--animation-timeline-tweens  : null;
 //  - tween(start)  start  => adds a 0.01ms delay and reuses first map to jump to start   
 
 
-// body {
-//     @include animation-timeline {
-//         animation-iteration-count: infinite;
-//         animation-fill-mode: forwards;
-//         @include tween(0s, (background-color: blueviolet, color: blueviolet));        
-//         @include tween(3s, (background-color: red, color: red));
-//         @include tween(3s, (background-color: orange, color: orange));
-//         @include tween(3s, (background-color: gold, color: gold));
-//         @include tween(3s, (background-color: green, color: green));
-//         @include tween(3s, (background-color: blue, color: blue));
-//         @include tween(3s, (background-color: blueviolet, color: blueviolet));
-//     }
-// }
+body {
+    @include animation-timeline {
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        @include tween(0s, (background-color: blueviolet, color: blueviolet));        
+        @include tween(3s, (background-color: red, color: red));
+        @include tween(3s, (background-color: orange, color: orange));
+        @include tween(3s, (background-color: gold, color: gold));
+        @include tween(3s, (background-color: green, color: green));
+        @include tween(3s, (background-color: blue, color: blue));
+        @include tween(3s, (background-color: blueviolet, color: blueviolet));
+    }
+}
 
 
 
 
 .hearts {
     overflow: hidden; 
-    // height: 15em;
-    i { font-size: 1em; display: block; line-height: 2.5; margin: 0; font-style: normal; }
+    height: 8em;
+    i { font-size: 20px; display: block; line-height: 2.2; margin: 0; font-style: normal; text-align: center; padding-top: 10px; }
     span {
         position: relative; 
         display: block; 
@@ -110,13 +110,6 @@ $☠️--animation-timeline-tweens  : null;
         }
     }
     
-}
-
-.timeLineList{
-    // font-size: 5px !important;
-    font-weight: bold;
-    color: black;
-    background-color: azure;
 }
 
 

@@ -1,8 +1,12 @@
 .landing-page{
     .rows{
         .columns{
-            border: 1px solid red;
+            // border: 1px solid red;
             padding: 0;
+            .about-me{
+                padding: 15px;
+                font-family: cursive;
+            }
         }
     }
 }

@@ -1,0 +1,71 @@
+.intro-card {
+  background: #ffffff;
+  /* border-radius: 20px; */
+  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  background: transparent;
+  color: white;
+}
+
+.intro-card:hover {
+  transform: translateY(10px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+  background: lightslategray;
+  border-radius: 20px !important;
+  opacity: 0.6;
+}
+.intro-text{
+  font-family: cursive;
+  font-size: 19px;
+}
+
+
+.intro-card .corner {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 2px solid transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.intro-card .corner.top-left {
+  top: 0;
+  left: 0;
+  border-top-color: red;
+  border-left-color: red;
+}
+
+.intro-card .corner.top-right {
+  top: 0;
+  right: 0;
+  border-top-color: red;
+  border-right-color: red;
+}
+
+.intro-card .corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom-color: red;
+  border-left-color: red;
+}
+
+.intro-card .corner.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom-color: red;
+  border-right-color: red;
+}
+
+@keyframes blink-corner {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.intro-card:hover .corner {
+  animation: blink-corner 3s ease-in-out;
+}

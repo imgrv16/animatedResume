@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './ReuseTimeLine.scss';
 import timelineData from '../../src/components/Data/data.json';
+import skills from '../../src/components/Data/skillSet.json';
 
 const Timeline02 = () => {
 
-    const [workExperience, setWorkExperience] = useState([]);
+    const [skillSet, setSkillSet] = useState([]);
 
     // Set the work experience data on component mount
     useEffect(() => {
-        setWorkExperience(timelineData.workExperience);
+        setSkillSet(skills.skills);
     }, []);
 
     return (
@@ -30,15 +31,25 @@ const Timeline02 = () => {
             </div>
           </div>
         ))} */}
-                <div class="hearts">
+                {/* <div class="hearts">
                     {
-                        workExperience.map((experience, index) => (
+                        skillSet.map((skill, index) => (
                             <div className='timeLineList' key={index}>
-                                <span> <i>{experience.title} ,  {experience.duration}</i></span>
-                                {/* <span> <i>DURATION -> {experience.duration}</i></span> */}
+                                <span> <i>{skill}</i></span>
                             </div>
                         ))
                     }
+                </div> */}
+                <div class="hearts">
+                    <span>
+                        {
+                            skillSet.map((skill, index) => (
+                                <div className='timeLineList' key={index}>
+                                    <span><i>❤️{skill}❤️</i></span>
+                                </div>
+                            ))
+                        }
+                    </span>
                 </div>
             </header>
         </div>

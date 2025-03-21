@@ -27,15 +27,15 @@
   
   .carousel-media {
     width: 100%;
-    height: auto;
-    // height: 250px;
+    // height: auto;
+    height: 50vh;
     border-radius: 10px;
     object-fit: cover;
   }
   
   iframe.carousel-media {
-    // height: 250px;
-    height: auto
+    height:50vh;
+    // height: auto
   }
   
   button {
